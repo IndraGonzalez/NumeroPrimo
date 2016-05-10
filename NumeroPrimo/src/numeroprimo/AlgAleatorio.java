@@ -11,33 +11,24 @@ import java.util.Set;
 public class AlgAleatorio {
     
     public boolean esPrimo(BigInteger n, int m){
+        if(BigInteger.valueOf(m).compareTo(n.subtract(new BigInteger("2"))) > 0){
+            throw new IllegalArgumentException("El número de pruebas debe ser menor o igual al número a probar menos dos.\n m <= n-2");
+        }
         
         BigInteger bi, mod;
-        
         Set<BigInteger> b = seleccionarMEnteros(n,m);
         ArrayList k = buscarJ(n);
-        
-        System.out.println("K -->");
-        Iterator<BigInteger> iter2 = k.iterator();
-        while(iter2.hasNext()){
-            System.out.print(iter2.next().toString());
-            System.out.print(" , ");
-        }
-        System.out.println("");
         
         Iterator<BigInteger> iter = b.iterator();
         
         while(iter.hasNext()){
             bi = iter.next();
-            System.out.println("Bi -> " + bi.toString());
             mod = bi.modPow(n.subtract(BigInteger.ONE), n);
             mod = mod.mod(n);
             if(mod.compareTo(BigInteger.ONE) != 0){
-                System.out.println("FALLA LA PRIMERA CONDICIÓN");
                 return false;
             } 
             if((k.size() >= 0) && encontrarDivisor(bi,n,k)){
-                System.out.println("FALLA LA SEGUNDA CONDICIÓN");
                 return false;
             }
         }
@@ -46,14 +37,13 @@ public class AlgAleatorio {
        
     public static Set<BigInteger> seleccionarMEnteros(BigInteger n, int m) {
         Set<BigInteger> b = new HashSet<BigInteger>();
-        int iter = 0;
+        int iter = 1;
         while(iter <= m){
             iter++;
             Random rnd = new Random();
             do {
                 BigInteger i = new BigInteger(n.bitLength(), rnd);
-                if ((i.compareTo(n) <= 0) && (i.compareTo(BigInteger.ZERO) != 0)){
-                    System.out.println("Bi = " + b + " i = " + i);
+                if ((i.compareTo(n) < 0) && (i.compareTo(BigInteger.ONE) > 0) && (!b.contains(i))){
                     b.add(i);
                     break;
                 }
@@ -82,7 +72,7 @@ public class AlgAleatorio {
 
     private boolean encontrarDivisor(BigInteger bi, BigInteger n, ArrayList k) {
         int i = 0;
-        while(i <= k.size()){
+        while(i < k.size()){
             BigInteger ki = (BigInteger) k.get(i);
             BigInteger mcd = mcd(bi,ki,n);
             if((mcd.compareTo(BigInteger.ONE) < 0) && ((mcd.compareTo(n)) < 0)){
@@ -95,8 +85,10 @@ public class AlgAleatorio {
     
     private BigInteger potencia(BigInteger base, BigInteger exponente){
         BigInteger potencia = BigInteger.ONE;
-        for (BigInteger i = BigInteger.ZERO; i.compareTo(exponente) <= 0; i.add(BigInteger.ONE)) {            
-            potencia.multiply(base);
+        BigInteger i = BigInteger.ZERO;
+        while(i.compareTo(exponente) <= 0){
+            potencia = potencia.multiply(base);
+            i = i.add(BigInteger.ONE);
         }
         return potencia;
     }
@@ -104,7 +96,5 @@ public class AlgAleatorio {
     private BigInteger mcd(BigInteger bi, BigInteger k, BigInteger n) {
         BigInteger bik = potencia(bi,k).subtract(BigInteger.ONE);
         return bik.gcd(n);
-    }
-
-    
+    }    
 }
