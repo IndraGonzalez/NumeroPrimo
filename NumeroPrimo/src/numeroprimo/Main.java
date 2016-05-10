@@ -2,8 +2,6 @@
 package numeroprimo;
 
 import java.math.BigInteger;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Main {
     
@@ -34,42 +32,41 @@ public class Main {
         boolean solucion4 = algoritmo.esPrimo(num4,m4);
         evaluar(solucion4,m4);
         
-        
-        System.out.println("PRUEBA DEL NÚMERO 73939133 ");
-        BigInteger num5 = new BigInteger("73939133");
-        int m5 = 100;
+        System.out.println("PRUEBA DEL NÚMERO 9887");
+        BigInteger num5 = new BigInteger("9887");
+        int m5 = 1000;
         boolean solucion5 = algoritmo.esPrimo(num5,m5);
         evaluar(solucion5,m5);
         
-        /*System.out.println("PRUEBA DEL NÚMERO 561");
-        BigInteger num5 = new BigInteger("561");
-        int m5 = 400;
-        boolean solucion5 = algoritmo.esPrimo(num5,m5);
-        evaluar(solucion5,m5);
+        System.out.println("PRUEBA DEL NÚMERO 561");
+        BigInteger num6 = new BigInteger("561");
+        int m6 = 400;
+        boolean solucion6 = algoritmo.esPrimo(num6,m6);
+        evaluar(solucion6,m6);
         
-        System.out.println("PRUEBA DEL NÚMERO ");
-        BigInteger num = new BigInteger("");
-        int m = ;
-        boolean solucion = algoritmo.esPrimo(num,m);
-        evaluar(solucion,m);
+        System.out.println("PRUEBA DEL NÚMERO 8");
+        BigInteger num7 = new BigInteger("8");
+        int m7 = 6;
+        boolean solucion7 = algoritmo.esPrimo(num7,m7);
+        evaluar(solucion7,m7);
         
-        System.out.println("PRUEBA DEL NÚMERO ");
-        BigInteger num = new BigInteger("");
-        int m = ;
-        boolean solucion = algoritmo.esPrimo(num,m);
-        evaluar(solucion,m);
+        System.out.println("PRUEBA DEL NÚMERO 327");
+        BigInteger num8 = new BigInteger("327");
+        int m8 = 325;
+        boolean solucion8 = algoritmo.esPrimo(num8,m8);
+        evaluar(solucion8,m8);
         
-        System.out.println("PRUEBA DEL NÚMERO ");
-        BigInteger num = new BigInteger("");
-        int m = ;
-        boolean solucion = algoritmo.esPrimo(num,m);
-        evaluar(solucion,m);
+        System.out.println("PRUEBA DEL NÚMERO 22");
+        BigInteger num9 = new BigInteger("22");
+        int m9 = 20;
+        boolean solucion9 = algoritmo.esPrimo(num9,m9);
+        evaluar(solucion9,m9);
         
-        System.out.println("PRUEBA DEL NÚMERO ");
-        BigInteger num = new BigInteger("");
-        int m = ;
-        boolean solucion = algoritmo.esPrimo(num,m);
-        evaluar(solucion,m);*/
+        System.out.println("PRUEBA DEL NÚMERO 123456789075");
+        BigInteger num10 = new BigInteger("123456789075");
+        int m10 = 200;
+        boolean solucion10 = algoritmo.esPrimo(num10,m10);
+        evaluar(solucion10,m10);
 
     }
 

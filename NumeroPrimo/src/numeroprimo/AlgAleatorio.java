@@ -17,7 +17,7 @@ public class AlgAleatorio {
         
         BigInteger bi, mod;
         Set<BigInteger> b = seleccionarMEnteros(n,m);
-        ArrayList k = buscarJ(n);
+        ArrayList<BigInteger> k = buscarJ(n);
         
         Iterator<BigInteger> iter = b.iterator();
         
@@ -52,8 +52,8 @@ public class AlgAleatorio {
         return b;
     }
 
-    private ArrayList buscarJ(BigInteger n) {
-        ArrayList<BigInteger> solucion = new ArrayList();
+    private ArrayList<BigInteger> buscarJ(BigInteger n) {
+        ArrayList<BigInteger> solucion = new ArrayList<BigInteger>();
         int j = 1; 
         BigInteger num = n.subtract(BigInteger.ONE);
         BigInteger dos = new BigInteger("2");
